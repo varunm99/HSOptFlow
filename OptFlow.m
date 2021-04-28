@@ -19,8 +19,8 @@ for i=1:iterations
     v0=conv2(v,avg_kernel,'same');
     
     % Update linear system solution across entire image
-    u = u0 - (Ix.*(Ix.*u0 + Iy.*v0 + It))./(alpha^2 + Ix.^2 + Iy.^2); 
-    v = v0 - (Iy.*(Ix.*u0 + Iy.*v0 + It))./(alpha^2 + Ix.^2 + Iy.^2);
+    u = u0 - (Ix.*(Ix.*u0 + Iy.*v0 + It))./(alpha + Ix.^2 + Iy.^2); 
+    v = v0 - (Iy.*(Ix.*u0 + Iy.*v0 + It))./(alpha + Ix.^2 + Iy.^2);
 end
 u(isnan(u))=0;
 v(isnan(v))=0;
